@@ -5,7 +5,7 @@ import time
 import tensorflow.keras
 from PIL import Image, ImageOps
 import json
-from tensorflow.keras.models import model_from_json
+from tensorflow.keras.models import load_model
 
 
 p = 0
@@ -31,11 +31,13 @@ np.set_printoptions(suppress=True)
 
 # Load the model
 
-json_file = open('Hand_gesture/Saved_models/final1', 'r')
-loaded_model_json = json_file.read()
-json_file.close()
-loaded_model = model_from_json(loaded_model_json)
-loaded_model.load_weights('Hand_gesture/final_model1.h5')
+# json_file = open('Hand_gesture/Saved_models/final1', 'r')
+# loaded_model_json = json_file.read()
+# json_file.close()
+# loaded_model = model_from_json(loaded_model_json)
+# loaded_model.load_weights('Hand_gesture/final_model1.h5')
+
+loaded_model = load_model('model.h5')
 
 
 class RepeatedTimer:
